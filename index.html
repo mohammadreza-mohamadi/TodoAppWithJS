@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Container Start -->
+    <div class="container">
+
+        <div class="toolbar">
+            <div class="toolbar-item">
+                <label for="search">Search</label>
+                <input type="text" onchange="searchTodo()" id="search" placeholder="enter todo search ..." />
+            </div>
+
+            <div class="toolbar-item">
+                <label for="todoAdd">Todo</label>
+                <input type="text" id="todoAdd" placeholder="Add todo ..." />
+                <button class="btnTodo" onclick="addTodo()">Add</button>
+            </div>
+        </div>
+
+        <div class="todoes">
+            <table class="todoTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Todo</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="todoes-list">
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- Container End -->
+
+    <!-- Edit Modal start -->
+    <div class="todoModal hidden">
+        <div class="modalHeader">
+            <span class="closeIcon"><i class="fa fa-close" style="font-size:36px;color:red"></i></span>
+            <h2>Edit Todo</h2>
+        </div>
+        <div class="modalBody">
+            <form>
+                <div class="title_todo">
+                    <label for="todoTitle">Todo Title </label>
+                    <input type="text" id="todoTitle">
+                </div>
+                <div class="todoStatus">
+                    <h3>Todo Status</h3>
+                    <div>
+                        <input type="radio" id="registerRadio" value="register" name="statusTodo" />
+                        <label>register</label>
+                        
+                        <input type="radio" id="pendingRadio" value="pending" name="statusTodo" />
+                        <label>pending</label>
+
+                        <input type="radio" id="completedRadio" value="completed" name="statusTodo"
+                         />
+                        <label>completed</label>
+                    </div>
+                </div>
+                <button class="modalBtnEdit">Edit</button>
+            </form>
+        </div>
+    </div>
+    <!-- Edit Modal End -->
+
+    <!-- Delete Modal Start -->
+      <div class="delModal hidden">
+        <div>
+            <span><i class="fa fa-warning" style="color:rgb(247, 203, 8);font-size:3.2rem;"></i></span>
+            <h2>Are you sure about deleting?</h2>
+        </div>
+        <button class="btn delBtn">Delete</button>
+        <button class="btn cancelBtn">Cancel</button>
+      </div>
+    <!-- Delete Modal End -->
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

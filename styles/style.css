@@ -1,0 +1,387 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.toolbar {
+  width: 90%;
+  height: auto;
+  margin: 3rem auto;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: center;
+}
+.toolbar-item {
+  width: 90%;
+  margin: 0.8rem auto;
+}
+
+.toolbar-item input {
+  max-width: calc(80%);
+}
+
+.todoes {
+  width: 90%;
+  min-height: calc(50%);
+  max-height: auto;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  margin: 1.6rem auto;
+}
+
+.toolbar-item label {
+  font-size: 1.6rem;
+}
+
+.toolbar-item input {
+  width: calc(90%);
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.btnTodo {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgb(34, 196, 34);
+  color: #fff;
+  border: none;
+  outline: 0;
+  border-radius: 0.5rem;
+}
+
+.btnTodo:hover {
+  background-color: #fff;
+  color: rgb(34, 196, 34);
+  border: 0.1rem solid rgb(34, 196, 34);
+  cursor: pointer;
+}
+
+.todoTable {
+  width: calc(90%);
+  min-height: calc(15%);
+  height: auto;
+  margin: 4rem auto;
+}
+
+.todoTable thead {
+  height: 3rem;
+  font-size: 14%;
+  width: calc(95%);
+  padding-bottom: 1rem;
+  border-bottom: 0.05rem solid #000;
+  margin-bottom: 1.6 rem;
+}
+
+.todoTable tbody {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.todoTable tbody::before {
+  content: "@";
+  display: block;
+  line-height: 10px;
+  text-indent: -99999px;
+}
+
+.todoTable tbody tr {
+  height: 3rem;
+}
+
+.todoes tbody tr:nth-child(even) {
+  background-color: #e5cccc;
+}
+
+.todoTable tbody .editTodo,
+.delTodo {
+  width: 4rem;
+  height: 3rem;
+  border: none;
+  outline: 0;
+  border-radius: 0.3rem;
+  margin: 0 0.3rem;
+}
+
+.todoTable tbody .editTodo {
+  background-color: #eb953f;
+}
+
+.todoTable tbody .delTodo {
+  background-color: rgb(241, 66, 66);
+}
+
+.completed,
+.pending,
+.register {
+  display: inline-block;
+  min-width: 6rem;
+  width: auto;
+  height: auto;
+  border-radius: 0.8rem;
+}
+
+.completed {
+  background-color: #2bd00a;
+}
+
+.pending {
+  background-color: #f6df14;
+}
+
+.register {
+  background-color: rgb(91, 91, 241);
+}
+
+.hidden {
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.todoModal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(50%);
+  height: calc(40%);
+  border: 1px solid#ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+.todoModal .modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.2rem;
+  background-color: #5961fc;
+}
+
+.todoModal .modalHeader h2 {
+  flex-grow: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.todoModal .modalHeader span i {
+  cursor: pointer;
+}
+
+.todoModal .modalBody {
+  width: calc(70%);
+  height: calc(70%);
+  flex-grow: 1;
+  margin: 3rem auto;
+}
+
+.todoModal .todoStatus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.todoModal .modalBody .title_todo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.todoModal .modalBody label,
+h3 {
+  font-size: 1.6rem;
+}
+
+.todoModal .modalBody .title_todo input {
+  width: 12rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.todoModal .modalBody .modalBtnEdit {
+  margin-top: 1.6rem;
+  width: calc(60%);
+  height: calc(4rem);
+  background-color: #ad14ea;
+  border: none;
+  outline: 0;
+  border-radius: 0.5rem;
+}
+
+.delModal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(40%);
+  height: calc(20%);
+  border: 1px solid#ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+.delModal div{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin : 1.5rem auto 1rem 3rem;
+}
+.delModal button{
+    margin: 0 3rem;
+    width:6rem;
+    height: 3rem;
+    outline: 0;
+    border-radius: .5rem;
+}
+
+.delModal .delBtn
+{
+  background-color: rgb(243, 67, 58);
+}
+
+.delModal .cancelBtn
+{
+  background-color: hsla(177, 85%, 58%, 0.573);
+}
+
+/* for gratter 768px devices width */
+@media screen and (min-width: 768px) {
+  .toolbar {
+    height: calc(15%);
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .toolbar .toolbar-item {
+    margin-left: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(30%);
+    gap: 0.8rem;
+  }
+
+  .toolbar-item label {
+    font-size: 1.8rem;
+  }
+
+  .toolbar-item input {
+    width: calc(80%);
+    height: 5rem;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+  }
+
+  .btnTodo {
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(34, 196, 34);
+    color: #fff;
+    border: none;
+    outline: 0;
+    border-radius: 0.5rem;
+  }
+
+  .btnTodo:hover {
+    background-color: #fff;
+    color: rgb(34, 196, 34);
+    border: 0.3rem solid rgb(34, 196, 34);
+    cursor: pointer;
+  }
+
+  .todoTable {
+    width: calc(90%);
+    min-height: calc(20%);
+    height: auto;
+    border-collapse: collapse;
+  }
+
+  .todoTable thead {
+    height: 4rem;
+    font-size: 1.8rem;
+  }
+
+  .todoTable tbody tr {
+    height: 4.5rem;
+  }
+
+  .todoTable tbody .editTodo,
+  .delTodo {
+    width: 6rem;
+    margin: 0 0.4rem;
+  }
+  .todoModal {
+    width: calc(40%);
+    height: calc(40%);
+  }
+
+  .todoModal .todoStatus {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1.6rem;
+    margin-top: 3.2rem;
+  }
+
+  .todoModal .modalBody .title_todo {
+    justify-content: space-around;
+    gap: 3rem;
+  }
+
+  .todoModal .modalBody {
+    width: calc(70%);
+    height: calc(70%);
+    flex-grow: 1;
+  }
+  .todoModal .modalBody label,
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  .todoModal .modalBody .title_todo input {
+    width: 24rem;
+  }
+
+  .todoModal .modalBody .modalBtnEdit {
+    margin-top: 4rem;
+    width: calc(70%);
+    height: calc(4rem);
+    color: #fff;
+  }
+
+  .delModal {
+    width: calc(30%);
+    height: calc(15%);
+  }
+}

@@ -49,7 +49,7 @@ function displayTodoes(todoes) {
 
 // function for add todo
 function addTodo() {
-  let todoesAll = JSON.parse(localStorage.getItem("todoes"));
+  let todoesAll = localStorage.getItem("todoes") ? JSON.parse(localStorage.getItem("todoes")) : [];
   if (todoInput.value != "") {
     todoesAll.push({
       id: todoes.length + Math.floor(Math.random() * 1000),
